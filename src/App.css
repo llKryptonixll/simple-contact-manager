@@ -1,0 +1,297 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+button{
+    border: none;
+    cursor: pointer;
+}
+
+:root{
+    --headerBG: #1B3346;
+    --addContactBG: #EDEEF2;
+    --accentColor: #3BA3C9;
+    --strongGrey: #A09F9F;
+    --redColor: #e43535;
+
+    --mainBorder_radius: 15px;
+    --mainPadding: 30px;
+}
+
+/* header styles */
+header{
+    background-color: var(--headerBG);
+    height: 75px;
+    display: grid;
+    align-items: center;
+}
+.main_header{
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-left: var(--mainPadding);
+    font-size: clamp(0.9rem, 4vw, 1rem);
+}
+.main_header .icon{
+    margin-left: 15px;
+    font-size: 1.5rem;
+}
+.add_contacts_header{
+    background-color: var(--addContactBG);
+    padding-left: var(--mainPadding);
+    height: 100px;
+    align-items: center;
+    justify-items: left;
+    display: grid;
+}
+.settings_buttons{
+    display: flex;
+}
+.add_contacts_header button{
+    margin-left: 20px;
+}
+.add_contacts_header button:first-of-type{
+    margin-left: 0;
+}
+.header_button_base{
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: var(--mainBorder_radius);
+    width: 100px;
+    height: 30px;
+    transition: 250ms;
+}
+.header_button_base:hover{
+    transition: 250ms;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px var(--headerBG);
+}
+.add_contacts_button{
+    background-color: var(--accentColor);
+}
+.delete_all_btn{
+    background-color: var(--redColor);
+}
+.searchbar{
+    width: calc((100px*2) + 20px);
+    position: relative;
+}
+.searchbar .icon{
+    position: absolute;
+    top: 7px;
+    left: 15px;
+}
+.searchbar input{
+    border-radius: var(--mainBorder_radius);
+    width: calc(100% - 35px);
+}
+
+/* contact list styling */
+.contact_list{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-auto-rows: 200px;
+    grid-row-gap: 30px;
+    justify-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.contact_card{
+    position: relative;
+    background-color: white;
+    width: calc(100% - var(--mainPadding)*2);
+    border: 2px solid var(--strongGrey);
+    border-radius: 5px;
+    box-shadow: 3px 3px 15px rgb(189, 189, 189);
+    display: grid;
+    align-content: center;
+    gap: 20px;
+    overflow: hidden;
+}
+.person_info, .contact_info{
+    padding-left: 20px;
+    display: grid;
+    gap: 5px;
+}
+.person_info p:nth-child(1){
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #1f3141;
+}
+.person_info p:nth-child(2){
+    color: var(--accentColor);
+}
+.person_info p:nth-child(3){
+    color: #1f3141;
+}
+.contact_info_rounded{
+    border-radius: var(--mainBorder_radius);
+    border: 1px solid var(--strongGrey);
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+}
+
+/* add new contacts form styling */
+.form_wrapper{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.534);
+    position: absolute;
+    place-self: center;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 1500ms;
+    display: grid;
+}
+form{
+    display: grid;
+    gap: 50px;
+    padding: 30px;
+    place-items: center;
+    place-self: center;
+    width: min(75%, 700px);
+    height: min(550px, 75%);
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    overflow-x: hidden;
+    left: -400px;
+    opacity: 0;
+    transition: 1500ms ease-out;
+    visibility: hidden;
+}
+label{
+    display: grid;
+    gap: 5px;
+    width: 90%;
+    height: 30px;
+    color: var(--headerBG);
+    font-size: 1.1rem;
+    position: relative;
+}
+input{
+    border-radius: 5px;
+    border: 1px solid var(--strongGrey);
+    height: 30px;
+    padding-left: 35px;
+}
+.inputs_icon{
+    position: absolute;
+    bottom: -16px;
+    left: 10px;
+}
+input:focus{
+    outline: 2px solid var(--accentColor);
+    border: none;
+}
+::placeholder{
+}
+.create_contact_btn{
+    background-color: var(--accentColor);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 50px;
+    width: 180px;
+    border-radius: 5px;
+    transition: 250ms;
+}
+.create_contact_btn:hover{
+    background-color: #3b778d;
+    transition: 250ms;
+    letter-spacing: 1.5px;
+}
+.close_form_btn{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--redColor);
+    cursor: pointer;
+}
+.close_form_btn:hover .xicon{
+    transform: rotate(360deg);
+    transition: 500ms;
+}
+.close_form_btn .xicon{
+    position: relative;
+    top: 19.5px;
+    left: 12.5px;
+    color: white;
+    font-size: 1.5rem;
+}
+.error_message{
+    color: var(--redColor);
+    font-weight: bold;
+    font-size: 1rem;
+}
+.no_contacts_placeholder{
+    font-size: clamp(2rem, 8.5vw, 4rem);
+    color: var(--headerBG);
+    height: calc(100% - 150px);
+    display: grid;
+    place-items: center;
+    position: absolute;
+    bottom: 0;
+}
+.deleteCurrent_contact_btn{
+    background-color: var(--redColor);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: -12px;
+    bottom: -12px;
+    cursor: pointer;
+    transition: 250ms;
+}
+.deleteCurrent_contact_btn:hover{
+    transition: 250ms;
+    width: 70px;
+    height: 70px;
+}
+.deleteCurrent_contact_btn:hover .trashbin_icon{
+    top: 15px;
+    left: 20px;
+    font-size: 2rem;
+    transition: 250ms;
+}
+.trashbin_icon{
+    transition: 250ms;
+    color: white;
+    position: relative;
+    top: 10px;
+    left: 14px;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 1300px) {
+    .contact_list{
+        grid-template-columns: 33.333% 33.333% 33.333%;
+    }
+}
+@media (max-width: 950px) {
+    .contact_list{
+        grid-template-columns: 50% 50%;
+    }
+}
+@media (max-width: 600px) {
+    .contact_list{
+        grid-template-columns: 100%;
+    }
+
+    .main_header, .add_contacts_header{
+        justify-content: center;
+        padding-left: 0;
+    }
+}
